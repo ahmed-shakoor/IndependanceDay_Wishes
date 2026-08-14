@@ -1,0 +1,2037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="description" content="A personalized Independence Day greeting for Pakistan — 14 August 2026." />
+    <meta name="theme-color" content="#01411C" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>Happy Independence Day, Pakistan! — 14 August 2026</title>
+
+    <meta property="og:title" content="Happy Independence Day, Pakistan!" />
+    <meta property="og:description" content="14 August 2026 — Pakistan Zindabad!" />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&family=Baloo+2:wght@500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Fallback if JavaScript is disabled: never show a blank page -->
+    <noscript>
+        <style>
+            .door-overlay {
+                display: none !important;
+            }
+
+            .main-content {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+
+            .side-decor,
+            .music-toggle {
+                display: none !important;
+            }
+        </style>
+    </noscript>
+
+    <style>
+        /* ============ PALETTE & TOKENS ============ */
+        :root {
+            --green-pakistan: #01411C;
+            --green-flag: #006600;
+            --green-bright: #0A8F3D;
+            --green-deep: #012B13;
+            --white: #FFFFFF;
+            --off-white: #F8FAF5;
+            --light-green: #EEF8F1;
+            --soft-border: #D9EBDD;
+            --dark-text: #12301D;
+            --muted-text: #557060;
+            --gold: #D4AF37;
+            --shadow-green: 0 10px 30px rgba(1, 65, 28, 0.25);
+            --shadow-soft: 0 4px 14px rgba(1, 43, 19, 0.15);
+            --ease-cinematic: cubic-bezier(0.7, 0, 0.3, 1);
+            --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-display: 'Fredoka', 'Baloo 2', system-ui, sans-serif;
+            --font-body: 'Poppins', system-ui, sans-serif;
+        }
+
+        /* ============ RESET & BASE ============ */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--dark-text);
+            background: radial-gradient(ellipse at top, #e3f5e8 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, #eef8f1 0%, #ffffff 70%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        body.overlay-open {
+            overflow: hidden;
+        }
+
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+            color: inherit;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ============ 1. DOOR OVERLAY ============ */
+        .door-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            display: flex;
+            overflow: hidden;
+            transition: opacity 0.4s ease 0.8s, visibility 0.4s ease 0.8s;
+        }
+
+        .door-overlay.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .door-panel {
+            position: relative;
+            flex: 1 1 50%;
+            height: 100%;
+            transition: transform 1.4s var(--ease-cinematic);
+            will-change: transform;
+        }
+
+        .door-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(135deg, rgba(1, 43, 19, 0.85), rgba(1, 65, 28, 0.65)),
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 18px),
+                radial-gradient(circle at 30% 40%, #0A8F3D 0%, transparent 55%),
+                radial-gradient(circle at 70% 70%, #01411C 0%, #012B13 80%);
+            background-size: 200% 100%;
+            background-position: left center;
+        }
+
+        .door-image-right {
+            background-position: right center;
+        }
+
+        .door-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 110%, rgba(255, 255, 255, 0.18) 0 20%, transparent 35%);
+            mix-blend-mode: screen;
+            pointer-events: none;
+        }
+
+        .door-image::after {
+            content: "🇵🇰";
+            position: absolute;
+            top: 14%;
+            font-size: clamp(2rem, 6vw, 4rem);
+            opacity: 0.5;
+        }
+
+        .door-image-left::after {
+            left: 12%;
+        }
+
+        .door-image-right::after {
+            right: 12%;
+        }
+
+        .door-overlay-tint {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 20%, rgba(1, 43, 19, 0.35) 100%);
+            pointer-events: none;
+        }
+
+        .door-overlay.opening .door-left {
+            transform: translateX(-102%);
+        }
+
+        .door-overlay.opening .door-right {
+            transform: translateX(102%);
+        }
+
+        /* ============ 2. CENTRAL BUTTON ============ */
+        .open-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25), 0 0 40px rgba(10, 143, 61, 0.7), 0 10px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, opacity 0.6s ease, visibility 0.6s ease;
+            animation: pulseGlow 2.4s ease-in-out infinite;
+        }
+
+        .open-btn:hover,
+        .open-btn:focus-visible {
+            transform: translate(-50%, -50%) scale(1.08);
+            outline: none;
+        }
+
+        .open-btn:active {
+            transform: translate(-50%, -50%) scale(0.94);
+        }
+
+        .open-btn-inner {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #0A8F3D, #01411C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            box-shadow: inset 0 2px 6px rgba(255, 255, 255, 0.4);
+        }
+
+        .crescent-star {
+            font-size: 3.2rem;
+            line-height: 1;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        .open-label {
+            position: absolute;
+            top: calc(50% + 90px);
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-family: var(--font-display);
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            z-index: 1001;
+            animation: fadeFloat 2s ease-in-out infinite;
+        }
+
+        .door-overlay.opening .open-btn,
+        .door-overlay.opening .open-label {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.25), 0 0 40px rgba(10, 143, 61, 0.7), 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 0 12px rgba(255, 255, 255, 0.15), 0 0 60px rgba(10, 143, 61, 0.95), 0 10px 30px rgba(0, 0, 0, 0.3);
+            }
+        }
+
+        @keyframes fadeFloat {
+
+            0%,
+            100% {
+                opacity: 0.85;
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) translateY(-4px);
+            }
+        }
+
+        /* ============ 4. FIREWORKS CANVAS ============ */
+        #fireworks-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease 1.4s;
+        }
+
+        #fireworks-canvas.visible {
+            opacity: 1;
+        }
+
+        /* ============ MAIN CONTENT ============ */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 100px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease 1.3s, transform 1s ease 1.3s;
+        }
+
+        .main-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ 5. SIDE DECOR ============ */
+        .side-decor {
+            position: fixed;
+            top: 0;
+            width: 50px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease 1.5s;
+            overflow: hidden;
+        }
+
+        .side-decor.visible {
+            opacity: 1;
+        }
+
+        .side-decor-left {
+            left: 8px;
+            animation: slideUp 40s linear infinite;
+        }
+
+        .side-decor-right {
+            right: 8px;
+            animation: slideDown 40s linear infinite;
+        }
+
+        .side-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            margin: 14px 0;
+            font-size: 1.4rem;
+            color: var(--green-flag);
+            opacity: 0.7;
+            text-shadow: 0 2px 4px rgba(1, 65, 28, 0.3);
+            filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.8));
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-50%);
+            }
+        }
+
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-50%);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* ============ 6/7. GREETING ============ */
+        .greeting-section {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-top: 20px;
+        }
+
+        .pre-name {
+            font-weight: 500;
+            font-size: clamp(1rem, 2.2vw, 1.35rem);
+            color: var(--muted-text);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeIn 0.8s ease 0.2s forwards;
+        }
+
+        .personalized-name {
+            font-family: var(--font-display);
+            font-size: clamp(2.6rem, 8vw, 5.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 10px 0 20px;
+            display: inline-flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2px;
+            min-height: 1.2em;
+        }
+
+        .name-letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px) rotate(-10deg);
+            animation: letterBounce 0.6s var(--ease-bounce) forwards;
+            color: var(--green-pakistan);
+            text-shadow: 0 2px 8px rgba(1, 65, 28, 0.25);
+        }
+
+        .name-letter:nth-child(3n) {
+            color: var(--green-bright);
+        }
+
+        .name-letter:nth-child(5n) {
+            color: var(--green-flag);
+        }
+
+        .name-letter.space {
+            width: 0.4em;
+        }
+
+        @keyframes letterBounce {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) rotate(-15deg) scale(0.5);
+            }
+
+            60% {
+                opacity: 1;
+                transform: translateY(-6px) rotate(4deg) scale(1.1);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+        }
+
+        .greeting-main {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            font-weight: 600;
+            color: var(--green-pakistan);
+            margin-top: 10px;
+            opacity: 0;
+            animation: fadeIn 0.9s ease 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ============ 8. COUNTDOWN ============ */
+        .countdown-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .countdown-label {
+            font-family: var(--font-display);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 500;
+            color: var(--muted-text);
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .countdown-cell {
+            background: var(--white);
+            border: 2px solid var(--soft-border);
+            border-radius: 14px;
+            padding: 14px 6px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-cell:hover {
+            transform: translateY(-3px);
+        }
+
+        .cd-num {
+            display: block;
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--green-pakistan);
+            line-height: 1.1;
+        }
+
+        .cd-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--muted-text);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* ============ 9. 79 YEARS ============ */
+        .years-section {
+            text-align: center;
+            margin: 50px 0 60px;
+            padding: 28px 20px;
+            background: linear-gradient(135deg, var(--light-green), var(--off-white));
+            border-radius: 24px;
+            border: 1px solid var(--soft-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .years-section::before,
+        .years-section::after {
+            content: "☪";
+            position: absolute;
+            font-size: 3rem;
+            color: var(--green-flag);
+            opacity: 0.15;
+        }
+
+        .years-section::before {
+            top: 10px;
+            left: 20px;
+        }
+
+        .years-section::after {
+            bottom: 10px;
+            right: 20px;
+            transform: rotate(15deg);
+        }
+
+        .years-dates {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--muted-text);
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .years-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 14vw, 8rem);
+            font-weight: 800;
+            line-height: 1;
+            margin: 6px 0;
+            background: linear-gradient(135deg, var(--green-bright) 0%, var(--green-pakistan) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            animation: floatY 4s ease-in-out infinite;
+        }
+
+        .years-text {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2.3vw, 1.3rem);
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+
+        @keyframes floatY {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        /* ============ 10. FEATURED FLAG ============ */
+        .featured-section {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0 60px;
+        }
+
+        .featured-image-wrap {
+            width: min(320px, 85vw);
+            animation: floatRotate 6s ease-in-out infinite;
+        }
+
+        .featured-image {
+            width: 100%;
+            aspect-ratio: 3 / 2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(1, 65, 28, 0.35), 0 0 0 4px var(--white), 0 0 0 6px var(--green-flag);
+            background: var(--white);
+        }
+
+        .featured-flag {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .flag-white {
+            width: 25%;
+            background: var(--white);
+        }
+
+        .flag-green {
+            flex: 1;
+            background: var(--green-flag);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flag-crescent {
+            color: var(--white);
+            font-size: 4rem;
+            transform: rotate(-20deg);
+            margin-right: 12px;
+        }
+
+        .flag-star {
+            color: var(--white);
+            font-size: 2.4rem;
+            transform: rotate(15deg);
+            margin-top: -10px;
+        }
+
+        @keyframes floatRotate {
+            0% {
+                transform: scale(1) rotate(0deg) translateY(0);
+            }
+
+            50% {
+                transform: scale(1.05) rotate(1.5deg) translateY(-8px);
+            }
+
+            100% {
+                transform: scale(1) rotate(0deg) translateY(0);
+            }
+        }
+
+        /* ============ 11. SLIDER ============ */
+        .slider-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .slider-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            color: var(--green-pakistan);
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .slider-wrap {
+            position: relative;
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .slider-track {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-green);
+            background: var(--light-green);
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transform: scale(1.04);
+            transition: opacity 1s ease, transform 1s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slide-visual {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .slide-minar {
+            background: linear-gradient(to top, #c4a57b 0%, #c4a57b 35%, #9ec9ff 35%, #d7ecff 100%);
+        }
+
+        .slide-minar::before {
+            content: "";
+            position: absolute;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 14%;
+            height: 38%;
+            background: linear-gradient(to top, #a07a4e, #d4b68a);
+            clip-path: polygon(20% 100%, 80% 100%, 70% 30%, 55% 30%, 55% 0, 45% 0, 45% 30%, 30% 30%);
+        }
+
+        .slide-faisal {
+            background: linear-gradient(to top, #a7c7b0 0%, #a7c7b0 25%, #b9d5e8 25%, #dbeaf4 100%);
+        }
+
+        .slide-faisal::before {
+            content: "";
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40%;
+            height: 25%;
+            background: #f5f5f5;
+            clip-path: polygon(0 100%, 100% 100%, 90% 30%, 85% 0, 80% 30%, 50% 20%, 20% 30%, 15% 0, 10% 30%);
+        }
+
+        .slide-k2 {
+            background: linear-gradient(to top, #6a8a5a 0%, #6a8a5a 15%, #8ba578 15%, #8ba578 35%, #ffffff 35%, #ffffff 60%, #b4d1e8 60%);
+        }
+
+        .slide-k2::before {
+            content: "";
+            position: absolute;
+            bottom: 35%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 45%;
+            background: linear-gradient(to top, #e8eef3, #ffffff);
+            clip-path: polygon(10% 100%, 50% 10%, 90% 100%);
+        }
+
+        .slide-badshahi {
+            background: linear-gradient(to top, #d8b892 0%, #d8b892 30%, #f0c896 30%, #f7e2b9 100%);
+        }
+
+        .slide-badshahi::before {
+            content: "";
+            position: absolute;
+            bottom: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 28%;
+            background: #a34732;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .slide-hunza {
+            background: linear-gradient(to top, #5a7a4a 0%, #7a9a6a 30%, #c4a57b 60%, #ffffff 75%, #a7c7e8 100%);
+        }
+
+        .slide-caption {
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(to top, rgba(1, 65, 28, 0.85), transparent);
+            color: var(--white);
+            padding: 20px 18px 14px;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--soft-border);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: var(--green-flag);
+            transform: scale(1.3);
+        }
+
+        /* ===== Real photos in slider ===== */
+        .slide-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .slide-visual::before {
+            content: none !important;
+        }
+
+        /* remove CSS drawings */
+        .slide-minar,
+        .slide-faisal,
+        .slide-k2,
+        .slide-badshahi,
+        .slide-hunza {
+            background: #012B13;
+            /* dark green while image loads */
+        }
+
+        /* ============ 12/13. MESSAGE CARD + TYPEWRITER ============ */
+        .message-section {
+            margin: 60px 0;
+        }
+
+        .message-card {
+            position: relative;
+            background: linear-gradient(135deg, #ffffff 0%, var(--light-green) 100%);
+            border: 2px solid var(--soft-border);
+            border-radius: 28px;
+            padding: 40px 28px;
+            box-shadow: var(--shadow-green);
+            overflow: hidden;
+            animation: cardPulse 4s ease-in-out infinite;
+            isolation: isolate;
+        }
+
+        @keyframes cardPulse {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 30px rgba(1, 65, 28, 0.2);
+            }
+
+            50% {
+                box-shadow: 0 14px 40px rgba(1, 65, 28, 0.35), 0 0 0 4px rgba(10, 143, 61, 0.15);
+            }
+        }
+
+        .confetti-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .message-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.6rem;
+            margin-bottom: 14px;
+        }
+
+        .message-header h3 {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--green-pakistan);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+        }
+
+        .typewriter {
+            position: relative;
+            z-index: 1;
+            font-size: clamp(1rem, 2.3vw, 1.2rem);
+            line-height: 1.8;
+            color: var(--dark-text);
+            min-height: 260px;
+            text-align: center;
+            padding: 10px 4px;
+        }
+
+        .tw-line {
+            display: block;
+            margin: 6px 0;
+            opacity: 0;
+            animation: lineAppear 0.4s ease forwards;
+        }
+
+        @keyframes lineAppear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .tw-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1em;
+            background: var(--green-flag);
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blink 0.9s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .message-footer {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            font-size: 1.4rem;
+            margin-top: 20px;
+        }
+
+        /* ============ 15. FINALE ============ */
+        .finale-section {
+            text-align: center;
+            margin: 60px 0 40px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s ease, transform 1s var(--ease-bounce);
+        }
+
+        .finale-section.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .finale-burst {
+            padding: 40px 20px;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.9), rgba(238, 248, 241, 0.6)),
+                linear-gradient(135deg, var(--green-bright), var(--green-pakistan));
+            border-radius: 30px;
+            box-shadow: var(--shadow-green);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .finale-burst::before {
+            content: "🎉 🎊 ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 2rem;
+            opacity: 0.2;
+            pointer-events: none;
+        }
+
+        .finale-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 14px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            animation: finalePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes finalePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.03);
+            }
+        }
+
+        .finale-zindabad {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin: 10px 0;
+            color: var(--gold);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 2px;
+        }
+
+        .finale-date {
+            font-family: var(--font-display);
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 600;
+            margin-top: 10px;
+            opacity: 0.95;
+            letter-spacing: 3px;
+        }
+
+        /* ============ 16. FINAL WISH ============ */
+        .final-wish-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px 20px;
+            background: var(--white);
+            border-radius: 24px;
+            border: 2px dashed var(--soft-border);
+        }
+
+        .final-name {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.2rem);
+            font-weight: 700;
+            color: var(--green-pakistan);
+            margin-bottom: 12px;
+        }
+
+        .final-text {
+            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            color: var(--muted-text);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .final-text em {
+            font-style: normal;
+            font-weight: 600;
+            color: var(--green-flag);
+        }
+
+        /* ============ 17/18. SHARE ============ */
+        .share-section {
+            text-align: center;
+            margin: 50px 0 30px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, var(--light-green), var(--off-white));
+            border-radius: 24px;
+            border: 1px solid var(--soft-border);
+        }
+
+        .share-section h3 {
+            font-family: var(--font-display);
+            color: var(--green-pakistan);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .share-hint {
+            color: var(--muted-text);
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+        }
+
+        .share-form {
+            display: flex;
+            gap: 10px;
+            max-width: 480px;
+            margin: 0 auto 14px;
+            flex-wrap: wrap;
+        }
+
+        .share-form input {
+            flex: 1 1 200px;
+            padding: 14px 18px;
+            border: 2px solid var(--soft-border);
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            background: var(--white);
+            color: var(--dark-text);
+            transition: border-color 0.2s ease;
+        }
+
+        .share-form input:focus {
+            outline: none;
+            border-color: var(--green-flag);
+            box-shadow: 0 0 0 3px rgba(10, 143, 61, 0.2);
+        }
+
+        .btn-create,
+        .btn-share {
+            padding: 14px 24px;
+            background: linear-gradient(135deg, var(--green-bright), var(--green-pakistan));
+            color: var(--white);
+            border-radius: 12px;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-create:hover,
+        .btn-share:hover,
+        .btn-create:focus-visible,
+        .btn-share:focus-visible {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-green);
+            outline: none;
+        }
+
+        .btn-share {
+            display: inline-block;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 30px 20px 10px;
+            color: var(--muted-text);
+            font-size: 0.85rem;
+        }
+
+        .restart-btn {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--green-flag);
+            text-decoration: underline;
+            margin-top: 8px;
+            transition: color 0.2s ease;
+        }
+
+        .restart-btn:hover {
+            color: var(--green-pakistan);
+        }
+
+        /* ============ 19. MUSIC TOGGLE ============ */
+        .music-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--green-flag);
+            box-shadow: var(--shadow-soft);
+            font-size: 1.3rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease 1.8s, transform 0.2s ease;
+        }
+
+        .music-toggle.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.08);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 30px 16px 80px;
+            }
+
+            .open-btn {
+                width: 90px;
+                height: 90px;
+            }
+
+            .open-btn-inner {
+                width: 66px;
+                height: 66px;
+            }
+
+            .crescent-star {
+                font-size: 2.4rem;
+            }
+
+            .open-label {
+                top: calc(50% + 68px);
+                font-size: 0.9rem;
+            }
+
+            .side-decor {
+                width: 32px;
+            }
+
+            .side-icon {
+                font-size: 1rem;
+                width: 26px;
+                height: 26px;
+                margin: 10px 0;
+            }
+
+            .countdown-grid {
+                gap: 6px;
+            }
+
+            .countdown-cell {
+                padding: 10px 4px;
+                border-radius: 10px;
+            }
+
+            .message-card {
+                padding: 28px 18px;
+                border-radius: 20px;
+            }
+
+            .typewriter {
+                min-height: 320px;
+            }
+
+            .finale-burst {
+                padding: 28px 16px;
+                border-radius: 20px;
+            }
+
+            .share-form {
+                flex-direction: column;
+            }
+
+            .btn-create,
+            .btn-share {
+                width: 100%;
+            }
+
+            .music-toggle {
+                width: 46px;
+                height: 46px;
+                bottom: 14px;
+                right: 14px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .open-btn {
+                width: 75px;
+                height: 75px;
+            }
+
+            .open-btn-inner {
+                width: 56px;
+                height: 56px;
+            }
+
+            .crescent-star {
+                font-size: 2rem;
+            }
+
+            .open-label {
+                top: calc(50% + 56px);
+                font-size: 0.8rem;
+            }
+
+            .side-decor {
+                width: 24px;
+                opacity: 0.6;
+            }
+
+            .side-icon {
+                font-size: 0.85rem;
+                width: 22px;
+                height: 22px;
+                margin: 8px 0;
+            }
+
+            .cd-num {
+                font-size: 1.3rem;
+            }
+
+            .cd-label {
+                font-size: 0.65rem;
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .main-content {
+                max-width: 980px;
+                padding: 80px 24px 120px;
+            }
+
+            .open-btn {
+                width: 140px;
+                height: 140px;
+            }
+
+            .open-btn-inner {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* ============ REDUCED MOTION ============ */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .door-overlay.opening .door-left,
+            .door-overlay.opening .door-right {
+                transform: none !important;
+                opacity: 0 !important;
+            }
+
+            #fireworks-canvas,
+            .confetti-canvas {
+                display: none;
+            }
+
+            .side-decor {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1. DOOR OVERLAY -->
+    <div id="door-overlay" class="door-overlay" role="dialog" aria-label="Independence Day greeting opening screen">
+        <div class="door-panel door-left" aria-hidden="true">
+            <div class="door-image door-image-left"></div>
+            <div class="door-overlay-tint"></div>
+        </div>
+        <div class="door-panel door-right" aria-hidden="true">
+            <div class="door-image door-image-right"></div>
+            <div class="door-overlay-tint"></div>
+        </div>
+        <button id="open-btn" class="open-btn" aria-label="Open the Independence Day wish">
+            <span class="open-btn-inner" aria-hidden="true"><span class="crescent-star">☪</span></span>
+        </button>
+        <div class="open-label" aria-hidden="true">Tap to Celebrate</div>
+    </div>
+
+    <canvas id="fireworks-canvas" aria-hidden="true"></canvas>
+
+    <div class="side-decor side-decor-left" aria-hidden="true"></div>
+    <div class="side-decor side-decor-right" aria-hidden="true"></div>
+
+    <main id="main-content" class="main-content" role="main">
+
+        <section class="greeting-section" aria-labelledby="greeting-title">
+            <h1 id="personalized-name" class="personalized-name" aria-live="polite">Ahmed Shakoor</h1>
+            <p class="pre-name">Wishing You &amp; Your Family</p>
+            <h2 id="greeting-title" class="greeting-main"> A Very Happy Independence Day!</h2>
+        </section>
+
+        <section class="countdown-section" aria-labelledby="countdown-title">
+            <h3 id="countdown-title" class="countdown-label">Time Until Independence Day</h3>
+            <div class="countdown-grid">
+                <div class="countdown-cell"><span id="cd-days" class="cd-num">00</span><span
+                        class="cd-label">Days</span></div>
+                <div class="countdown-cell"><span id="cd-hours" class="cd-num">00</span><span
+                        class="cd-label">Hours</span></div>
+                <div class="countdown-cell"><span id="cd-minutes" class="cd-num">00</span><span
+                        class="cd-label">Minutes</span></div>
+                <div class="countdown-cell"><span id="cd-seconds" class="cd-num">00</span><span
+                        class="cd-label">Seconds</span></div>
+            </div>
+        </section>
+
+        <section class="years-section">
+            <p class="years-dates">14 AUGUST 1947 → 14 AUGUST 2026</p>
+            <p class="years-number">79</p>
+            <p class="years-text">Years Of Freedom, Unity &amp; Hope</p>
+        </section>
+
+        <section class="featured-section" aria-label="Featured Independence Day artwork">
+            <div class="featured-image-wrap">
+                <div class="featured-image" role="img" aria-label="Pakistan flag with crescent and star">
+                    <div class="featured-flag">
+                        <div class="flag-white"></div>
+                        <div class="flag-green">
+                            <div class="flag-crescent">☪</div>
+                            <div class="flag-star">★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="slider-section" aria-label="Pakistani landmarks gallery">
+            <h3 class="slider-title">Celebrating Our Homeland</h3>
+            <div class="slider-wrap">
+                <div class="slider-track" id="slider-track">
+
+                    <div class="slide active">
+                        <div class="slide-visual slide-minar" role="img" aria-label="Minar-e-Pakistan">
+                            <img src="Minar-e-Pakistan.jpg" alt="Minar-e-Pakistan" />
+                        </div>
+                        <span class="slide-caption">Minar-e-Pakistan</span>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-visual slide-faisal" role="img" aria-label="Faisal Mosque, Islamabad">
+                            <img src="Faisal_Mosque.jpg" alt="Faisal Mosque, Islamabad" />
+                        </div>
+                        <span class="slide-caption">Faisal Mosque, Islamabad</span>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-visual slide-k2" role="img" aria-label="K2 mountain">
+                            <img src="K2.jpg" alt="K2 mountain" />
+                        </div>
+                        <span class="slide-caption">K2 — The Roof of Pakistan</span>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-visual slide-badshahi" role="img" aria-label="Badshahi Mosque, Lahore">
+                            <img src="Badshahi_Mosque.jpg" alt="Badshahi Mosque, Lahore" />
+                        </div>
+                        <span class="slide-caption">Badshahi Mosque, Lahore</span>
+                    </div>
+
+                    <div class="slide">
+                        <div class="slide-visual slide-hunza" role="img" aria-label="Hunza Valley">
+                            <img src="Hunza_Valley.jpg" alt="Hunza Valley" />
+                        </div>
+                        <span class="slide-caption">Hunza Valley</span>
+                    </div>
+
+                </div>
+                <div class="slider-dots" id="slider-dots" aria-label="Slide indicators"></div>
+            </div>
+        </section>
+
+        <section class="message-section" aria-label="Patriotic message">
+            <div class="message-card" id="message-card">
+                <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+                <div class="message-header">
+                    <h3>Celebrating Pakistan's Independence Day</h3>
+                </div>
+                <div id="typewriter" class="typewriter" aria-live="polite"></div>
+                <div class="message-footer" aria-hidden="true">✨ 💚🤍 ✨</div>
+            </div>
+        </section>
+
+        <section id="finale-section" class="finale-section" aria-labelledby="finale-title">
+            <div class="finale-burst">
+                <h2 id="finale-title" class="finale-title">HAPPY INDEPENDENCE DAY!</h2>
+                <p class="finale-zindabad">PAKISTAN ZINDABAD!</p>
+                <p class="finale-date">14 AUGUST 2026</p>
+            </div>
+        </section>
+
+        <section class="final-wish-section" aria-label="Sender's signature">
+            <p class="final-name" id="final-sender">Ahmed Shakoor</p>
+            <p class="final-text"> wishes <em id="final-text">you</em> and <em id="final-text">your family</em> a very
+                <em id="final-text">Happy Independence Day!</em>
+            </p>
+        </section>
+
+        <section class="share-section" aria-labelledby="share-title">
+            <h3 id="share-title">Create Your Own Wish</h3>
+            <p class="share-hint">Add your name and share a personalized greeting with your loved ones.</p>
+            <form id="share-form" class="share-form">
+                <label for="sender-input" class="sr-only">Your name</label>
+                <input id="sender-input" type="text" placeholder="Enter Your Name" maxlength="40" required
+                    autocomplete="name" />
+                <button type="submit" class="btn-create">Create Wish 🇵🇰</button>
+            </form>
+            <button id="share-btn" class="btn-share" type="button">📤 Share This Wish 🇵🇰</button>
+        </section>
+
+        <footer class="site-footer">
+            <p>Made with ❤️ for Pakistan • 14 August 2026</p>
+            <p class="footer-small">A special digital greeting for you</p>
+            <button id="restart-btn" class="restart-btn" type="button">↻ Replay Experience</button>
+        </footer>
+    </main>
+
+    <button id="music-toggle" class="music-toggle" type="button" aria-label="Toggle background music"
+        aria-pressed="false">
+        <span class="music-icon" aria-hidden="true">🔇</span>
+    </button>
+
+    <!-- Optional music: put a file named independence-music.mp3 next to this
+         file and add  src="independence-music.mp3"  to the tag below. -->
+    <!-- <audio id="bg-audio" loop preload="none"></audio> -->
+    <audio id="bg-audio" loop preload="none" src="independence-music.mp3"></audio>
+
+    <script>
+        (() => {
+            'use strict';
+
+            /* ================= CONFIG ================= */
+            const CONFIG = {
+                targetDate: new Date('2026-08-15T00:00:00+05:00'),
+                typewriterSpeed: 55,
+                typewriterPause: 600,
+                sliderInterval: 3000,
+                fireworkInterval: 1400,
+                mobileBreakpoint: 768,
+                particleCountDesktop: 90,
+                particleCountMobile: 40,
+                messages: [
+                    "Today🙌, we celebrate🥳🎆🎉 the spirit😇 of freedom⛓️‍💥...",
+                    "✨ A dream🌜 that became a nation on 💚 14 August 1947.",
+                    "A nation🏞️ built on courage🙂, unity✊ and hope.",
+                    "May Pakistan continue📈 to rise🐦‍🔥 and shine🌟💫...",
+                    "May🤲 our homeland🌄🪷 always remain peaceful and prosperous.",
+                    "Happy🎉 Independence Day, Pakistan!💚",
+                    "پاکستان زندہ باد! 🤍"
+                ]
+            };
+
+            const state = {
+                isDoorOpen: false,
+                reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+                isMobile: window.innerWidth <= CONFIG.mobileBreakpoint,
+                name: 'Ahmed Shakoor',
+            };
+
+            const $ = (id) => document.getElementById(id);
+            const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+            const wait = (ms) => new Promise(r => setTimeout(r, ms));
+
+            /* ================= TOAST ================= */
+            function showToast(msg) {
+                const toast = document.createElement('div');
+                toast.textContent = msg;
+                toast.setAttribute('role', 'status');
+                Object.assign(toast.style, {
+                    position: 'fixed', bottom: '84px', left: '50%', transform: 'translateX(-50%)',
+                    background: '#01411C', color: '#fff', padding: '14px 22px', borderRadius: '30px',
+                    zIndex: '9999', fontSize: '0.9rem', boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
+                    opacity: '0', transition: 'opacity 0.3s ease', maxWidth: '90vw',
+                    textAlign: 'center', fontFamily: 'Fredoka, sans-serif'
+                });
+                document.body.appendChild(toast);
+                requestAnimationFrame(() => { toast.style.opacity = '1'; });
+                setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 400); }, 2600);
+            }
+
+            /* ================= PERSONALIZED NAME ================= */
+            function loadPersonalizedName() {
+                try {
+                    const raw = new URLSearchParams(window.location.search).get('n');
+                    if (raw) {
+                        const name = decodeURIComponent(raw).replace(/-/g, ' ').trim();
+                        if (name.length > 0 && name.length <= 40) state.name = name;
+                    }
+                } catch (err) { console.warn('Could not parse name from URL', err); }
+                renderNameLetters();
+                updateFinalWish();
+            }
+
+            function renderNameLetters() {
+                const container = $('personalized-name');
+                if (!container) return;
+                container.innerHTML = '';
+                state.name.split('').forEach((ch, i) => {
+                    const span = document.createElement('span');
+                    span.className = 'name-letter' + (ch === ' ' ? ' space' : '');
+                    span.textContent = ch === ' ' ? '\u00A0' : ch;
+                    span.style.animationDelay = (0.6 + i * 0.07) + 's';
+                    container.appendChild(span);
+                });
+            }
+
+            function updateFinalWish() {
+                if ($('final-sender')) $('final-sender').textContent = state.name;
+                if ($('final-text-name')) $('final-text-name').textContent = state.name;
+            }
+
+            /* ================= DOORS ================= */
+            function openDoors() {
+                if (state.isDoorOpen) return;
+                state.isDoorOpen = true;
+
+                const overlay = $('door-overlay');
+                overlay.classList.add('opening');
+
+                // Schedule reveal FIRST so nothing can block it
+                setTimeout(() => {
+                    $('main-content').classList.add('visible');
+                    $('fireworks-canvas').classList.add('visible');
+                    $$('.side-decor').forEach(el => el.classList.add('visible'));
+                    $('music-toggle').classList.add('visible');
+                    document.body.classList.remove('overlay-open');
+                    initFireworks();
+                    initializeSlider();
+                    startTypewriter();
+                    startCountdown();
+                }, 1400);
+
+                setTimeout(() => overlay.classList.add('hidden'), 2200);
+
+                // Music init is safe and can never break the reveal
+                // try { startMusic(); } catch (e) { console.warn('Music unavailable:', e); } 
+                // Auto-start music when doors open
+                try {
+                    startMusic();
+                    // Auto-start music after the visitor clicks "Open" (allowed = user gesture)
+                    if (music.hasSource()) {
+                        music.audio.play().then(() => {
+                            music.playing = true;
+                            document.querySelector('.music-icon').textContent = '🔊';
+                            $('music-toggle').setAttribute('aria-pressed', 'true');
+                        }).catch(() => { }); // silently ignore if browser refuses
+                    }
+                } catch (e) { console.warn('Music unavailable:', e); }
+            }
+
+            /* ================= FIREWORKS ================= */
+            const fireworks = {
+                canvas: null, ctx: null, particles: [], rafId: null, lastBurst: 0,
+
+                init() {
+                    this.canvas = $('fireworks-canvas');
+                    if (!this.canvas) return;
+                    this.ctx = this.canvas.getContext('2d', { alpha: true });
+                    this.resize();
+                    window.addEventListener('resize', () => this.resize());
+                    if (!state.reducedMotion) this.loop(performance.now());
+                },
+
+                resize() {
+                    if (!this.canvas) return;
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    this.canvas.width = window.innerWidth * dpr;
+                    this.canvas.height = window.innerHeight * dpr;
+                    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                },
+
+                burst() {
+                    if (!this.ctx) return; // safety guard
+                    const colors = ['#01411C', '#006600', '#0A8F3D', '#FFFFFF', '#D4AF37'];
+                    const x = Math.random() * window.innerWidth;
+                    const y = Math.random() * window.innerHeight * 0.6 + window.innerHeight * 0.1;
+                    const count = state.isMobile ? CONFIG.particleCountMobile : CONFIG.particleCountDesktop;
+                    for (let i = 0; i < count; i++) {
+                        const angle = (Math.PI * 2 * i) / count + Math.random() * 0.3;
+                        const speed = Math.random() * 3 + 1.5;
+                        this.particles.push({
+                            x, y,
+                            vx: Math.cos(angle) * speed, vy: Math.sin(angle) * speed,
+                            life: 1, decay: Math.random() * 0.012 + 0.008,
+                            color: colors[Math.floor(Math.random() * colors.length)],
+                            size: Math.random() * 2.2 + 0.8, gravity: 0.04
+                        });
+                    }
+                },
+
+                loop(now) {
+                    if (!this.ctx || !this.canvas) return;
+                    this.ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+                    if (now - this.lastBurst > CONFIG.fireworkInterval) { this.burst(); this.lastBurst = now; }
+                    this.particles = this.particles.filter(p => p.life > 0);
+                    for (const p of this.particles) {
+                        p.x += p.vx; p.y += p.vy; p.vy += p.gravity; p.vx *= 0.99; p.life -= p.decay;
+                        this.ctx.globalAlpha = Math.max(p.life, 0);
+                        this.ctx.fillStyle = p.color;
+                        this.ctx.beginPath();
+                        this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                        this.ctx.fill();
+                    }
+                    this.ctx.globalAlpha = 1;
+                    this.rafId = requestAnimationFrame((t) => this.loop(t));
+                },
+
+                stop() { if (this.rafId) { cancelAnimationFrame(this.rafId); this.rafId = null; } }
+            };
+
+            function initFireworks() { if (!state.reducedMotion && !fireworks.rafId) fireworks.init(); }
+
+            /* ================= SIDE ICONS ================= */
+            function buildSideIcons() {
+                const icons = ['🇵🇰', '⭐', '☪', '🌙', '✨', '🇵🇰', '⭐', '☪', '✨', '🇵🇰', '⭐', '☪'];
+                const doubled = icons.concat(icons);
+                const left = document.querySelector('.side-decor-left');
+                const right = document.querySelector('.side-decor-right');
+                if (!left || !right) return;
+                doubled.forEach(icon => {
+                    const el = document.createElement('span');
+                    el.className = 'side-icon'; el.textContent = icon;
+                    left.appendChild(el.cloneNode(true));
+                    right.appendChild(el);
+                });
+            }
+
+            /* ================= COUNTDOWN ================= */
+            let countdownInterval = null;
+            function startCountdown() {
+                updateCountdown();
+                if (countdownInterval) clearInterval(countdownInterval);
+                countdownInterval = setInterval(updateCountdown, 1000);
+            }
+
+            function updateCountdown() {
+                const diff = CONFIG.targetDate - new Date();
+                const label = $('countdown-title');
+                if (!label) return;
+
+                if (diff <= 0) {
+                    label.textContent = (diff < -86400000)
+                        ? 'Happy Independence Day Pakistan!'
+                        : 'Counting Down to Jashn-e-Azadi';
+                    ['cd-days', 'cd-hours', 'cd-minutes', 'cd-seconds'].forEach(id => { $(id).textContent = '00'; });
+                    if (countdownInterval) clearInterval(countdownInterval);
+                    return;
+                }
+                $('cd-days').textContent = String(Math.floor(diff / 86400000)).padStart(2, '0');
+                $('cd-hours').textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+                $('cd-minutes').textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+                $('cd-seconds').textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+            }
+
+            /* ================= SLIDER ================= */
+            let sliderTimer = null;
+            function initializeSlider() {
+                const track = $('slider-track');
+                const dotsWrap = $('slider-dots');
+                if (!track || !dotsWrap) return;
+
+                if (sliderTimer) clearInterval(sliderTimer);
+                dotsWrap.innerHTML = ''; // prevent duplicate dots on replay
+
+                const slides = $$('.slide');
+                let current = 0;
+
+                slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.type = 'button';
+                    dot.className = 'dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    dot.addEventListener('click', () => go(i));
+                    dotsWrap.appendChild(dot);
+                });
+                const dots = $$('.dot');
+
+                function go(i) {
+                    slides[current].classList.remove('active');
+                    dots[current].classList.remove('active');
+                    current = (i + slides.length) % slides.length;
+                    slides[current].classList.add('active');
+                    dots[current].classList.add('active');
+                }
+                const next = () => go(current + 1);
+
+                sliderTimer = setInterval(next, CONFIG.sliderInterval);
+                track.addEventListener('mouseenter', () => clearInterval(sliderTimer));
+                track.addEventListener('mouseleave', () => { sliderTimer = setInterval(next, CONFIG.sliderInterval); });
+            }
+
+            /* ================= TYPEWRITER ================= */
+            async function startTypewriter() {
+                const container = $('typewriter');
+                if (!container) return;
+                container.innerHTML = '';
+
+                for (let lineIdx = 0; lineIdx < CONFIG.messages.length; lineIdx++) {
+                    const lineEl = document.createElement('span');
+                    lineEl.className = 'tw-line';
+                    container.appendChild(lineEl);
+                    const line = CONFIG.messages[lineIdx];
+
+                    const cursor = document.createElement('span');
+                    cursor.className = 'tw-cursor';
+                    lineEl.appendChild(cursor);
+
+                    for (let i = 0; i < line.length; i++) {
+                        if (state.reducedMotion) { lineEl.textContent = line; lineEl.appendChild(cursor); break; }
+                        lineEl.insertBefore(document.createTextNode(line[i]), cursor);
+                        await wait(CONFIG.typewriterSpeed);
+                    }
+                    cursor.remove();
+                    if (lineIdx < CONFIG.messages.length - 1) await wait(CONFIG.typewriterPause);
+                }
+
+                await wait(800);
+                triggerFinale();
+            }
+
+            /* ================= CONFETTI ================= */
+            const confetti = {
+                canvas: null, ctx: null, particles: [], rafId: null,
+
+                init() {
+                    this.canvas = $('confetti-canvas');
+                    if (!this.canvas) return;
+                    this.ctx = this.canvas.getContext('2d');
+                    this.resize();
+                    const colors = ['#01411C', '#006600', '#0A8F3D', '#FFFFFF', '#D4AF37'];
+                    const count = state.isMobile ? 30 : 60;
+                    const w = this.canvas.clientWidth, h = this.canvas.clientHeight;
+                    for (let i = 0; i < count; i++) {
+                        this.particles.push({
+                            x: Math.random() * w, y: Math.random() * h,
+                            size: Math.random() * 4 + 2,
+                            color: colors[Math.floor(Math.random() * colors.length)],
+                            vy: Math.random() * 0.6 + 0.3, vx: (Math.random() - 0.5) * 0.4,
+                            rot: Math.random() * 360, vRot: (Math.random() - 0.5) * 3
+                        });
+                    }
+                    if (!state.reducedMotion) this.loop();
+                },
+
+                resize() {
+                    if (!this.canvas) return;
+                    const parent = this.canvas.parentElement;
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    this.canvas.width = parent.clientWidth * dpr;
+                    this.canvas.height = parent.clientHeight * dpr;
+                    this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                },
+
+                loop() {
+                    if (!this.ctx || !this.canvas) return; // safety guard
+                    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    const w = this.canvas.width / dpr, h = this.canvas.height / dpr;
+                    this.ctx.clearRect(0, 0, w, h);
+                    for (const p of this.particles) {
+                        p.y += p.vy; p.x += p.vx; p.rot += p.vRot;
+                        if (p.y > h) { p.y = -10; p.x = Math.random() * w; }
+                        if (p.x < 0) p.x = w; if (p.x > w) p.x = 0;
+                        this.ctx.save();
+                        this.ctx.translate(p.x, p.y);
+                        this.ctx.rotate((p.rot * Math.PI) / 180);
+                        this.ctx.fillStyle = p.color;
+                        this.ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.5);
+                        this.ctx.restore();
+                    }
+                    this.rafId = requestAnimationFrame(() => this.loop());
+                },
+
+                stop() { if (this.rafId) { cancelAnimationFrame(this.rafId); this.rafId = null; } }
+            };
+
+            let confettiObserver = null;
+            function setupConfettiObserver() {
+                const card = $('message-card');
+                if (!card || typeof IntersectionObserver === 'undefined') { confetti.init(); return; }
+                if (confettiObserver) confettiObserver.disconnect();
+                confettiObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (!confetti.canvas) confetti.init();
+                            confettiObserver.disconnect();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                confettiObserver.observe(card);
+            }
+
+            /* ================= FINALE ================= */
+            function triggerFinale() {
+                const finale = $('finale-section');
+                if (!finale) return;
+                finale.classList.add('visible');
+                finale.scrollIntoView({ behavior: state.reducedMotion ? 'auto' : 'smooth', block: 'center' });
+                if (!state.reducedMotion) {
+                    for (let i = 0; i < 4; i++) setTimeout(() => fireworks.burst(), i * 300);
+                }
+            }
+
+            /* ================= MUSIC (safe) ================= */
+            const music = {
+                audio: null, playing: false,
+
+                init() {
+                    this.audio = $('bg-audio');
+                    if (this.audio) this.audio.volume = 0.5;
+                },
+
+                hasSource() {
+                    return !!this.audio && !!(this.audio.getAttribute('src') || this.audio.querySelector('source'));
+                },
+
+                toggle() {
+                    if (!this.audio) { showToast('🎵 Audio is not available in this build.'); return; }
+                    if (!this.hasSource()) { showToast('🎵 Add "independence-music.mp3" beside this file to enable music.'); return; }
+                    if (this.playing) {
+                        this.audio.pause(); this.playing = false;
+                        document.querySelector('.music-icon').textContent = '🔇';
+                        $('music-toggle').setAttribute('aria-pressed', 'false');
+                    } else {
+                        this.audio.play().catch(() => showToast('🎵 Could not play audio on this device.'));
+                        this.playing = true;
+                        document.querySelector('.music-icon').textContent = '🔊';
+                        $('music-toggle').setAttribute('aria-pressed', 'true');
+                    }
+                }
+            };
+
+            function startMusic() { music.init(); /* never autoplays */ }
+
+            /* ================= SHARE / URL ================= */
+            function generatePersonalizedURL(name) {
+                const slug = name.trim().replace(/\s+/g, '-');
+                const base = window.location.href.split(/[?#]/)[0]; // works on file:// too
+                return base + '?n=' + encodeURIComponent(slug);
+            }
+
+            async function shareWish() {
+                const url = window.location.href;
+                const text = "Happy Independence Day Pakistan!\n14 August 2026\nPakistan Zindabad!";
+                if (navigator.share) {
+                    try {
+                        await navigator.share({ title: 'Happy Independence Day, Pakistan!', text, url });
+                        return;
+                    } catch (err) {
+                        if (err && err.name === 'AbortError') return;
+                    }
+                }
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text + '\n' + url)
+                        .then(() => showToast('Link copied! Share it with your loved ones 🇵'))
+                        .catch(() => prompt('Copy this link to share:', url));
+                } else {
+                    prompt('Copy this link to share:', url);
+                }
+            }
+
+            /* ================= RESTART ================= */
+            function restartExperience() {
+                const overlay = $('door-overlay');
+                overlay.classList.remove('opening', 'hidden');
+                $('main-content').classList.remove('visible');
+                $('fireworks-canvas').classList.remove('visible');
+                $('finale-section').classList.remove('visible');
+                $$('.side-decor').forEach(el => el.classList.remove('visible'));
+                $('music-toggle').classList.remove('visible');
+
+                state.isDoorOpen = false;
+                document.body.classList.add('overlay-open');
+
+                fireworks.stop();
+                confetti.stop();
+                confetti.canvas = null; confetti.ctx = null; confetti.particles = [];
+                if (sliderTimer) clearInterval(sliderTimer);
+                if (countdownInterval) clearInterval(countdownInterval);
+
+                if (music.audio) {
+                    music.audio.pause(); music.audio.currentTime = 0; music.playing = false;
+                    document.querySelector('.music-icon').textContent = '🔇';
+                }
+
+                $('typewriter').innerHTML = '';
+                setupConfettiObserver();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            /* ================= INIT ================= */
+            function init() {
+                document.body.classList.add('overlay-open');
+                buildSideIcons();
+                loadPersonalizedName();
+                setupConfettiObserver();
+
+                $('open-btn').addEventListener('click', openDoors);
+                $('music-toggle').addEventListener('click', () => music.toggle());
+                $('share-btn').addEventListener('click', shareWish);
+                $('restart-btn').addEventListener('click', restartExperience);
+
+                $('share-form').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const val = $('sender-input').value.trim();
+                    if (!val) return;
+                    window.location.href = generatePersonalizedURL(val);
+                });
+
+                document.addEventListener('visibilitychange', () => {
+                    if (document.hidden) {
+                        fireworks.stop(); confetti.stop();
+                    } else if (state.isDoorOpen && !state.reducedMotion) {
+                        if (fireworks.canvas) fireworks.loop(performance.now());
+                        if (confetti.canvas) confetti.loop();
+                    }
+                });
+
+                window.addEventListener('resize', () => {
+                    state.isMobile = window.innerWidth <= CONFIG.mobileBreakpoint;
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', init);
+            } else {
+                init();
+            }
+        })();
+    </script>
+</body>
+
+</html>
